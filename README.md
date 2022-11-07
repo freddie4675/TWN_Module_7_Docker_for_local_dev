@@ -1,22 +1,27 @@
 # TWN_Module_7_Docker_for_local_dev
 
 
-#Docker for local development
-
-#In this branch I will use Dockerfile for nodejs application and to build a docker image.
-#I will use the server.js and app directory I got form TWN git lab to connecto to my Docker mongodb container and run mongo express as a UI for the database
+#Docker for private repository
 
 
-#Notes on contents of Dockerfile
+# When pulling from Docker hub you can perform a command like 
 
-# From - always the first line of a Dockerfile and dictates the basis this container is starting from. For example in this exersise if I just specified 13-alpine which is just a linux distribution it woould not have node installed. However node:13-alpine specifies that you are running node from the 13-alpine distribution
+#Docker pull reddis 
 
-#Env- this can define the enviroment varibles you would like to include in the container. 
-#in this docker file I will be defining the user to be admin and the password to be password
+#and because you are using Docker hub it knows which container and version to pull the image from. However when using a private repository this is not the case
+
+#so once you have authenticated your docker account with aws the first command you will need to push is
+
+#docker tag my-app:1.0 895154248152.dkr.ecr.us-west-2.amazonaws.com/my-app:1.0
+
+#To break this down this command is basically creating a associating version 1.0 of my-app on your local machine with version tag 1.0 of the remote my-app located at
 
 
-#Run - runs commands inside the container, the command this time will create a directory for the app files
+#895154248152.dkr.ecr.us-west-2.amazonaws.com/my-app
 
-#Copy - this command takes the first argument as where to copy a file from the host machine and the second dictates where in the container to copy to
+#After this you simply need to perform the docker push command referencing the remote repo exactly as well as the tag
 
-CMD - multipe run commands from an entry point
+#If you want to make changes to the docker file or other files in the image rebuild the docker image with a new tag and then push this new tagged version to the remote repo
+
+
+
