@@ -4,6 +4,10 @@ ENV MONGO_DB_USERNAME=admin \
 
 RUN mkdir -p /home/app
 
-COPY . /home/app
+COPY ./app /home/app
 
-CMD ["node", "home/app/server.js"]
+WORKDIR /home/app
+
+RUN npm install
+
+CMD ["node", "server.js"]
