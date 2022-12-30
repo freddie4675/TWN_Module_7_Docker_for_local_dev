@@ -26,4 +26,6 @@
 
 #By following through this exersise I have demonstrated the role of what a continous intergration tool like jenkins would perform in the pipeline 
 
+#A development server would then run a docker compose file starting the docker images sourced from docker hub as well as the one from your private repository
+
 
