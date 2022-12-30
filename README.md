@@ -24,4 +24,6 @@
 #If you want to make changes to the docker file or other files in the image rebuild the docker image with a new tag and then push this new tagged version to the remote repo
 
 
-#Test
+#By following through this exersise I have demonstrated the role of what a continous intergration tool like jenkins would perform in the pipeline 
+
+
